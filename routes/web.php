@@ -13,6 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/{user}/email-verified-snake', function (\App\Models\User $user) {
+    return $user->email_verified_at;
+});
+
+Route::get('/{user}/email-verified-camel', function (\App\Models\User $user) {
+    return $user->emailVerifiedAt;
+});
+
+Route::get('/{user}', function (\App\Models\User $user) {
+    return $user;
 });
